@@ -1,0 +1,24 @@
+.navbar {
+  background-color: #eaeaea;
+  width: "100%";
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-logo {
+  padding: 10px 15px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar-logo {
+    padding: 10px 5px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-logo {
+    padding: 10px 0px;
+  }
+}
