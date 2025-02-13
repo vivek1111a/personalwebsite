@@ -1,8 +1,34 @@
 .projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  margin: 2rem;
+}
+
+@media (max-width: 740px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 2rem 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+
+.project-content {
+  max-height: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  line-clamp: 10;
+  -webkit-box-orient: vertical;
 }
