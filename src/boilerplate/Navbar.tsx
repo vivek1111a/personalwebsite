@@ -84,53 +84,55 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden px-4 pb-4">
-          <NavigationMenuList className="flex flex-col space-y-2">
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/" onClick={toggleMobileMenu}>
-                  <Button variant="ghost" className="w-full">
-                    Home
-                  </Button>
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/blog" onClick={toggleMobileMenu}>
-                  <Button variant="ghost" className="w-full">
-                    Blog
-                  </Button>
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/projects" onClick={toggleMobileMenu}>
-                  <Button variant="ghost" className="w-full">
-                    Projects
-                  </Button>
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/about" onClick={toggleMobileMenu}>
-                  <Button variant="ghost" className="w-full">
-                    About Me
-                  </Button>
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="/contact" onClick={toggleMobileMenu}>
-                  <Button variant="ghost" className="w-full">
-                    Contact Me
-                  </Button>
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
+          <NavigationMenu>
+            <NavigationMenuList className="flex flex-col space-y-2">
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link to="/" onClick={toggleMobileMenu}>
+                    <Button variant="ghost" className="w-full">
+                      Home
+                    </Button>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link to="/blog" onClick={toggleMobileMenu}>
+                    <Button variant="ghost" className="w-full">
+                      Blog
+                    </Button>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link to="/projects" onClick={toggleMobileMenu}>
+                    <Button variant="ghost" className="w-full">
+                      Projects
+                    </Button>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link to="/about" onClick={toggleMobileMenu}>
+                    <Button variant="ghost" className="w-full">
+                      About Me
+                    </Button>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link to="/contact" onClick={toggleMobileMenu}>
+                    <Button variant="ghost" className="w-full">
+                      Contact Me
+                    </Button>
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       )}
     </nav>

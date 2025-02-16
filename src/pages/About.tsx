@@ -13,9 +13,9 @@ export default function About() {
       <div className="max-w-4xl mx-auto py-10 px-6 bg-white shadow-lg rounded-lg mt-6">
         <div className="text-center mb-6">
           <img
-            src="https://via.placeholder.com/150"
-            alt="Vivek's Photo"
-            className="rounded-full mx-auto"
+            src="https://i.ibb.co/5h4bqBML/VKW-SOFTWARE.jpg"
+            alt="VKW-SOFTWARE"
+            className="mx-auto"
           />
           <h2 className="text-2xl font-semibold mt-4">Vivek</h2>
           <p className="text-gray-600">

@@ -87,11 +87,6 @@ export default function Contact() {
           </CardContent>
         </Card>
       </div>
-
-      {/* Footer */}
-      <footer className="text-center bg-gray-900 text-white py-4 mt-10">
-        <p>&copy; 2025 Vivek. All Rights Reserved.</p>
-      </footer>
     </div>
   );
 }

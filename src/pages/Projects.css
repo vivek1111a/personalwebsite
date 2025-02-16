@@ -32,3 +32,8 @@
   line-clamp: 10;
   -webkit-box-orient: vertical;
 }
+
+.projects-grid {
+  max-width: 1200px;
+  margin: auto;
+}
