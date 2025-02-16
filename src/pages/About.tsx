@@ -27,8 +27,11 @@ export default function About() {
         <h3 className="text-xl font-semibold mt-6">Who Am I?</h3>
         <p className="text-gray-700 mt-2">
           I am an Aerospace Engineering student at IIT Bombay. I specialize in
-          full-stack web development using the MERN stack and have experience in
-          React Native for mobile applications.
+          full-stack web development using the MERN stack which is MongoDB for
+          database,Express for backend, React for frontend using Node
+          environment. I have experience in React Native for mobile
+          applications. I use redux for state management and am working on
+          personal finance management app.
         </p>
 
         <h3 className="text-xl font-semibold mt-6">My Skills</h3>
