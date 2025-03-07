@@ -2,9 +2,18 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ProjectCard, CardData } from "@/pages/Projectcard";
 import "./Homepage.css";
+import { getBlog } from "@/redux/blog";
+import { AppDispatch } from "@/redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function Home() {
-  // Dummy data for featured projects
+  const dispatch: AppDispatch = useDispatch();
+  const blog = useSelector((state: any) => state.blog.value);
+  useEffect(() => {
+    dispatch(getBlog());
+    console.log(blog);
+  });
   const featuredProjects: CardData[] = [
     {
       title: "Project 1",

@@ -21,11 +21,22 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission (e.g., API call)
-    console.log("Form submitted:", formData);
-    // Optionally reset form:
+    const backendurl = import.meta.env.VITE_TEST_BACKEND;
+    const response = await fetch(backendurl + "/resend/contactme", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    if (response.ok) {
+      alert("Message sent successfully!");
+    } else {
+      alert("Failed to send message!");
+    }
     setFormData({ name: "", email: "", message: "" });
   };
 

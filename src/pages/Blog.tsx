@@ -1,30 +1,17 @@
 import { Individualblog } from "./Individualblog";
 import "./Blog.css";
-import { BlogData } from "./Individualblog";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getBlog } from "@/redux/blog";
+import { AppDispatch } from "@/redux/store";
+import { BlogType } from "@/types";
 
 export default function Blog() {
-  const blogs: BlogData[] = [
-    {
-      id: 1,
-      title: "My Journey in Aerospace Engineering",
-      excerpt: "A look into my experiences studying Aerospace at IIT Bombay...",
-      date: "February 16, 2025",
-    },
-    {
-      id: 2,
-      title: "Building Scalable MERN Stack Applications",
-      excerpt:
-        "Best practices and lessons learned from my full-stack development journey...",
-      date: "February 10, 2025",
-    },
-    {
-      id: 3,
-      title: "Cricket and Coding: My Two Passions",
-      excerpt:
-        "How I balance my love for cricket with my software development career...",
-      date: "February 5, 2025",
-    },
-  ];
+  const blogs = useSelector((state: any) => state.blog.value);
+  const dispatch: AppDispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getBlog());
+  }, []);
   return (
     <div className="blog">
       <header className="text-center py-10">
@@ -32,7 +19,7 @@ export default function Blog() {
         <p className="text-lg text-gray-600">Sharing my thoughts on .....</p>
       </header>
       <div className="max-w-4xl mx-auto grid gap-6">
-        {blogs.map((blog) => (
+        {blogs.map((blog: BlogType) => (
           <Individualblog key={blog.id} blog={blog} />
         ))}
       </div>

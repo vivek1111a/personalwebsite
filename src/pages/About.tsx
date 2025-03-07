@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function About() {
   return (
     <>
@@ -30,7 +32,7 @@ export default function About() {
           full-stack web development using the MERN stack which is MongoDB for
           database,Express for backend, React for frontend using Node
           environment. I have experience in React Native for mobile
-          applications. I use redux for state management and am working on
+          applications. I use redux for state management and I am working on
           personal finance management app.
         </p>
 
@@ -55,12 +57,12 @@ export default function About() {
           If you’d like to collaborate, discuss a project, or just say hi, feel
           free to connect with me.
         </p>
-        <a
-          href="mailto:admin@vivekwadate.com"
+        <Link
+          to="/contact"
           className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
         >
           Contact Me
-        </a>
+        </Link>
       </div>
     </>
   );
