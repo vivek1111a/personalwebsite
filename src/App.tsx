@@ -10,6 +10,7 @@ import Blog from "./pages/Blog";
 import Footer from "./boilerplate/Footer";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import Blogfullinfo from "./components/blog/blogfullinfo";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<Blogfullinfo />} />
               <Route path="*" element={<Pagenotfound />} />
             </Routes>
           </div>

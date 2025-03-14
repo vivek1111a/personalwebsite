@@ -6,10 +6,12 @@ import { getBlog } from "@/redux/blog";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-
+import { Individualblog } from "@/components/blog/Individualblog";
+import { BlogType } from "@/types";
 export default function Home() {
   const dispatch: AppDispatch = useDispatch();
   const blog = useSelector((state: any) => state.blog.value);
+  const latestBlogs = blog.slice(0, 3);
   useEffect(() => {
     dispatch(getBlog());
     console.log(blog);
@@ -38,25 +40,6 @@ export default function Home() {
       imageurl: "",
       imgalt: "Project 3 Image",
       content: "Project 3 is a comprehensive project that ...",
-    },
-  ];
-
-  // Dummy data for latest blogs
-  const latestBlogs = [
-    {
-      id: "1",
-      title: "My Journey in Aerospace Engineering",
-      excerpt: "A glimpse into my experiences in aerospace and coding.",
-    },
-    {
-      id: "2",
-      title: "Building Scalable MERN Stack Applications",
-      excerpt: "Sharing insights and best practices on full-stack development.",
-    },
-    {
-      id: "3",
-      title: "Cricket and Coding: My Two Passions",
-      excerpt: "How I balance my love for cricket with software development.",
     },
   ];
 
@@ -103,16 +86,8 @@ export default function Home() {
             Latest Blog Posts
           </h2>
           <div className="blogs-list space-y-4 max-w-2xl mx-auto">
-            {latestBlogs.map((blog) => (
-              <div key={blog.id} className="p-4 bg-white shadow rounded">
-                <h3 className="text-2xl font-semibold">{blog.title}</h3>
-                <p className="text-gray-600">{blog.excerpt}</p>
-                <Link to={`/blog/${blog.id}`}>
-                  <Button variant="default" className="mt-2">
-                    Read More
-                  </Button>
-                </Link>
-              </div>
+            {latestBlogs.map((blog: BlogType) => (
+              <Individualblog key={blog._id} blog={blog} />
             ))}
           </div>
           <div className="text-center mt-8">

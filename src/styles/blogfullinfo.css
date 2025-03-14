@@ -1,0 +1,31 @@
+.blogtitle {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+.blogdate {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 1em;
+}
+.blogimage {
+  height: 20rem;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+
+  margin-bottom: 1em;
+}
+.blogcontent {
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.6em;
+  margin-bottom: 1em;
+}
+.blogfullinfo {
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 0 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}

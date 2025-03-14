@@ -1,4 +1,4 @@
-import { Individualblog } from "./Individualblog";
+import { Individualblog } from "../components/blog/Individualblog";
 import "./Blog.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -20,7 +20,7 @@ export default function Blog() {
       </header>
       <div className="max-w-4xl mx-auto grid gap-6">
         {blogs.map((blog: BlogType) => (
-          <Individualblog key={blog.id} blog={blog} />
+          <Individualblog key={blog._id} blog={blog} />
         ))}
       </div>
     </div>

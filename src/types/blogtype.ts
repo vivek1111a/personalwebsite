@@ -1,5 +1,5 @@
 type BlogType = {
-  id: string;
+  _id: string;
   title: string;
   content: string;
   images: string[];
