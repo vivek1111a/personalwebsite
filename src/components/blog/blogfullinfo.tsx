@@ -5,7 +5,7 @@ import { getBlog } from "@/redux/blog";
 import { AppDispatch } from "@/redux/store";
 import { useEffect } from "react";
 import "@/styles/blogfullinfo.css";
-import MarkdownRenderer from "./markdownrenderer";
+import MarkdownRenderer from "../../boilerplate/markdownrenderer";
 
 export default function Blogfullinfo() {
   const dispatch: AppDispatch = useDispatch();

@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { BlogType } from "@/types";
 import "@/styles/individualblog.css";
-import LinesMarkdownRenderer from "./linesmarkdown";
+import LinesMarkdownRenderer from "../../boilerplate/linesmarkdown";
 
 export function Individualblog({ blog }: { blog: BlogType }) {
   const date = new Date(blog.date);

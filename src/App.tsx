@@ -11,7 +11,7 @@ import Footer from "./boilerplate/Footer";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import Blogfullinfo from "./components/blog/blogfullinfo";
-
+import ProjectFullInfo from "./components/project/ProjectFullInfo";
 function App() {
   return (
     <>
@@ -23,6 +23,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/:id" element={<ProjectFullInfo />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />

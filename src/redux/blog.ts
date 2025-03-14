@@ -10,7 +10,6 @@ const getBlog = createAsyncThunk("blog/getBlog", async () => {
     },
   });
   let data = await response.json();
-  console.log(data);
   return data;
 });
 

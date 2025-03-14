@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import "./Navbar.css";
+import "@/styles/Navbar.css";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);

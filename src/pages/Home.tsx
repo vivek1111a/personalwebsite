@@ -1,47 +1,24 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ProjectCard, CardData } from "@/pages/Projectcard";
-import "./Homepage.css";
+import { IndividualProject } from "@/components/project/IndividualProject";
+import "../styles/Homepage.css";
 import { getBlog } from "@/redux/blog";
+import { getProjects } from "@/redux/project";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Individualblog } from "@/components/blog/Individualblog";
-import { BlogType } from "@/types";
+import { BlogType, ProjectType } from "@/types";
 export default function Home() {
   const dispatch: AppDispatch = useDispatch();
   const blog = useSelector((state: any) => state.blog.value);
+  const projects = useSelector((state: any) => state.project.value);
   const latestBlogs = blog.slice(0, 3);
+  const featuredProjects = projects.slice(0, 3);
   useEffect(() => {
     dispatch(getBlog());
-    console.log(blog);
+    dispatch(getProjects());
   });
-  const featuredProjects: CardData[] = [
-    {
-      title: "Project 1",
-      description:
-        "A brief overview of project 1 showcasing its main features.",
-      imageurl: "https://www.w3schools.com/images/w3schools_green.jpg",
-      imgalt: "Project 1 Image",
-      content: "Project 1 is an innovative solution for ...",
-    },
-    {
-      title: "Project 2",
-      description:
-        "Insights into the development and challenges faced in project 2.",
-      imageurl: "https://via.placeholder.com/300",
-      imgalt: "Project 2 Image",
-      content: "Project 2 explores cutting-edge technology in ...",
-    },
-    {
-      title: "Project 3",
-      description:
-        "An in-depth look at project 3 including its design process and key takeaways.",
-      imageurl: "",
-      imgalt: "Project 3 Image",
-      content: "Project 3 is a comprehensive project that ...",
-    },
-  ];
 
   return (
     <div className="homepage">
@@ -67,8 +44,8 @@ export default function Home() {
             Featured Projects
           </h2>
           <div className="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard key={index} carddata={project} />
+            {featuredProjects.map((project: ProjectType, index: number) => (
+              <IndividualProject key={index} carddata={project} />
             ))}
           </div>
           <div className="text-center mt-8">

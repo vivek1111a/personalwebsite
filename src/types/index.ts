@@ -1,3 +1,4 @@
 import BlogType from "./blogtype";
+import ProjectType from "./projecttype";
 
-export type { BlogType };
+export type { BlogType, ProjectType };
