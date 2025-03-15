@@ -1,0 +1,43 @@
+.project-full-info {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10rem;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.project-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.project-content {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  border-radius: 1rem;
+}
+.project-image-container {
+  margin: 1rem;
+  object-fit: fill;
+}
+
+.project-description {
+  margin-bottom: 1rem;
+}

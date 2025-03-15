@@ -22,6 +22,13 @@ export default function ProjectFullInfo() {
   }
   return (
     <div className="project-full-info">
+      <div className="project-image-container">
+        <img
+          src={currentProject.image}
+          alt={currentProject.title}
+          className="project-image"
+        />
+      </div>
       <header className="text-center py-10">
         <h1 className="project-title">{currentProject.title}</h1>
         <p className="project-subtitle">{currentProject.subtitle}</p>
@@ -29,9 +36,6 @@ export default function ProjectFullInfo() {
 
       <div className="project-content">
         <MarkdownRenderer markdown={currentProject.description} />
-      </div>
-      <div className="project-image">
-        <img src={currentProject.image} alt={currentProject.title} />
       </div>
     </div>
   );
