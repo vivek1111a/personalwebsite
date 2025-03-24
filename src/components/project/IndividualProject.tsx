@@ -16,6 +16,7 @@ export function IndividualProject({ carddata }: { carddata: ProjectType }) {
   const handleViewLive = () => {
     window.open(carddata.link, "_blank");
   };
+
   return (
     <Link to={`/projects/${carddata._id}`}>
       <Card className="project-card hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
@@ -46,7 +47,9 @@ export function IndividualProject({ carddata }: { carddata: ProjectType }) {
         </div>
         <CardFooter className="flex justify-between p-4">
           <Button onClick={handleViewLive}>View Live</Button>
-          <Button variant="secondary">Comment</Button>
+          <Link to={`/projects/${carddata._id}?comment=true`}>
+            <Button variant="secondary">Comment</Button>
+          </Link>
         </CardFooter>
       </Card>
     </Link>

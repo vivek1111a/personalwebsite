@@ -6,13 +6,18 @@ import { AppDispatch } from "@/redux/store";
 import { useEffect } from "react";
 import "@/styles/ProjectFullInfo.css";
 import MarkdownRenderer from "@/boilerplate/markdownrenderer";
+import ProjectComments from "./projectcomments";
 
 export default function ProjectFullInfo() {
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getProjects());
   }, [dispatch]);
-  const projects = useSelector((state: any) => state.project.value);
+  const urlParams = new URLSearchParams(window.location.search);
+  const comment = urlParams.get("comment");
+  const projects = useSelector(
+    (state: any) => state.project.value
+  ) as ProjectType[];
   const { id } = useParams<{ id: string }>();
   const currentProject = projects.find(
     (project: ProjectType) => project._id === id
@@ -37,6 +42,11 @@ export default function ProjectFullInfo() {
       <div className="project-content">
         <MarkdownRenderer markdown={currentProject.description} />
       </div>
+      {comment && (
+        <div className="project-comments">
+          <ProjectComments projectId={currentProject._id} />
+        </div>
+      )}
     </div>
   );
 }

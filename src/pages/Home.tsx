@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Individualblog } from "@/components/blog/Individualblog";
 import { BlogType, ProjectType } from "@/types";
+
 export default function Home() {
   const dispatch: AppDispatch = useDispatch();
   const blog = useSelector((state: any) => state.blog.value);
@@ -27,7 +28,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Vivek</h1>
           <p className="text-xl md:text-2xl mb-8">
-            Full-Stack Developer | Aerospace Engineer | Tech Enthusiast
+            Full-Stack Developer | Solopreneur | Problem Solver
           </p>
           <Link to="/about">
             <Button variant={"secondary"} className="px-8 py-3">
