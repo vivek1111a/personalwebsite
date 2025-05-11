@@ -6,7 +6,7 @@ import { AppDispatch } from "@/redux/store";
 import { useEffect } from "react";
 import "@/styles/ProjectFullInfo.css";
 import MarkdownRenderer from "@/boilerplate/markdownrenderer";
-import ProjectComments from "./projectcomments";
+import ProjectComments from "./ProjectComments";
 
 export default function ProjectFullInfo() {
   const dispatch: AppDispatch = useDispatch();
