@@ -12,13 +12,9 @@ export default function About() {
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto py-10 px-6 bg-white shadow-lg rounded-lg mt-6">
+      <div className="max-w-4xl mx-auto py-10 px-6 bg-white shadow-lg rounded-lg mt-6 mb-6">
         <div className="text-center mb-6">
-          <img
-            src="https://i.ibb.co/5h4bqBML/VKW-SOFTWARE.jpg"
-            alt="VKW-SOFTWARE"
-            className="mx-auto"
-          />
+          <img src="vivek_.jpg" alt="VKW-SOFTWARE" className="mx-auto" />
           <h2 className="text-2xl font-semibold mt-4">Vivek</h2>
           <p className="text-gray-600">
             MERN Stack Developer, Third year student at IIT Bombay and
