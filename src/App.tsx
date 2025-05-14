@@ -12,6 +12,7 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 import Blogfullinfo from "./components/blog/blogfullinfo";
 import ProjectFullInfo from "./components/project/ProjectFullInfo";
+import Subscribe from "./pages/subscribe";
 function App() {
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<Blogfullinfo />} />
+              <Route path="/subscribe" element={<Subscribe />} />
               <Route path="*" element={<Pagenotfound />} />
             </Routes>
           </div>

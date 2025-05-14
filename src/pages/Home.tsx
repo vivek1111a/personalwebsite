@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Individualblog } from "@/components/blog/Individualblog";
 import { BlogType, ProjectType } from "@/types";
+import "./Homepage.css";
 
 export default function Home() {
   const dispatch: AppDispatch = useDispatch();
@@ -24,7 +25,7 @@ export default function Home() {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <section className="hero bg-gray-900 text-white py-20">
+      <section className="hero bg-gray-900 text-white py-20 flex items-center justify-center">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Vivek</h1>
           <p className="text-xl md:text-2xl mb-8">
@@ -36,6 +37,7 @@ export default function Home() {
             </Button>
           </Link>
         </div>
+        <img src={"/vivek_main.jpg"} alt="vivek" className="vivek_main" />
       </section>
 
       {/* Featured Projects Section */}
