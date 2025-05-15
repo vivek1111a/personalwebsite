@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Pagenotfound from "./pages/Pagenotfound";
@@ -13,7 +13,16 @@ import { Provider } from "react-redux";
 import Blogfullinfo from "./components/blog/blogfullinfo";
 import ProjectFullInfo from "./components/project/ProjectFullInfo";
 import Subscribe from "./pages/subscribe";
+import ReactGA from "react-ga4";
+
 function App() {
+  const google_analytics = import.meta.env.VITE_TEST_GOOGLE;
+  ReactGA.initialize(google_analytics);
+  const location = useLocation();
+  ReactGA.send({
+    hitType: "pageview",
+    page: location.pathname,
+  });
   return (
     <>
       <BrowserRouter>
