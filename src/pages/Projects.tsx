@@ -16,7 +16,12 @@ export default function Projects() {
   }, [dispatch]);
   return (
     <div className="projects-page px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">My Projects</h1>
+      <header className="text-center py-16 bg-white">
+        <h1 className="text-5xl font-extrabold mb-4 text-gray-900">
+          My Project
+        </h1>
+      </header>
+
       <div className="projects-grid grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((card: ProjectType, index: number) => (
           <IndividualProject key={index} carddata={card} />

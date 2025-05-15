@@ -16,20 +16,23 @@ export default function Blog() {
   }, []);
   return (
     <div className="blog">
-      <header className="text-center py-10">
-        <h1 className="text-4xl font-bold mb-4">Blog</h1>
-        <p className="text-lg text-gray-600 mb-10">
-          Sharing my thoughts on .....
+      <header className="text-center py-16 bg-white">
+        <h1 className="text-5xl font-extrabold mb-4 text-gray-900">Blog</h1>
+        <p className="text-xl text-gray-500 mb-12">
+          Sharing my thoughts on anything and everything 🌱
         </p>
-        <div className="flex justify-center items-center">
-          <h2 className="text-2xl font-bold mr-4">Subscribe to my blog</h2>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <h2 className="text-2xl font-semibold text-gray-800">
+            Subscribe to my blog
+          </h2>
           <Link to="/subscribe">
-            <Button variant={"default"} className="px-8 py-3">
+            <Button className="px-6 py-3 rounded-lg shadow-md text-white bg-black hover:bg-gray-800 transition">
               Subscribe
             </Button>
           </Link>
         </div>
       </header>
+
       <div className="max-w-4xl mx-auto grid gap-6 mb-10">
         {blogs.map((blog: BlogType) => (
           <Individualblog key={blog._id} blog={blog} />

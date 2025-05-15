@@ -18,15 +18,15 @@ export default function Home() {
   const latestBlogs = blog.slice(0, 3);
   const featuredProjects = projects.slice(0, 3);
   useEffect(() => {
-    dispatch(getBlog());
-    dispatch(getProjects());
+    // dispatch(getBlog());
+    // dispatch(getProjects());
   });
 
   return (
     <div className="homepage">
-      {/* Hero Section */}
-      <section className="hero bg-gray-900 text-white py-20 flex items-center justify-center">
-        <div className="container mx-auto px-4 text-center">
+      {/* when mid flex-col */}
+      <section className="hero bg-gray-900 text-white py-20 flex items-center justify-center flex-col lg:flex-row">
+        <div className="container px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Hi, I'm Vivek</h1>
           <p className="text-xl md:text-2xl mb-8">
             A Developer on a Journey — Learning to Solve.
@@ -37,7 +37,11 @@ export default function Home() {
             </Button>
           </Link>
         </div>
-        <img src={"/vivek_main.jpg"} alt="vivek" className="vivek_main" />
+        <img
+          src={"/vivek_main.jpg"}
+          alt="vivek"
+          className="vivek_main mr-0 lg:mr-10 mt-10 lg:mt-0"
+        />
       </section>
 
       {/* Featured Projects Section */}

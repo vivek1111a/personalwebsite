@@ -61,7 +61,7 @@ export default function Navbar() {
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <Link to="/contact">
-                    <Button variant="ghost">Contact Me</Button>
+                    <Button variant="ghost">Contact</Button>
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>

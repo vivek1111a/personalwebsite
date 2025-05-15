@@ -45,7 +45,7 @@ export default function Contact() {
       <div className="max-w-xl mx-auto mt-5">
         <Card className="bg-white shadow-lg rounded-lg py-3 px-6">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold">Contact Me</CardTitle>
+            <CardTitle className="text-2xl font-bold">Contact</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
