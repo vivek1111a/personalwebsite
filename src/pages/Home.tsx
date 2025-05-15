@@ -18,8 +18,8 @@ export default function Home() {
   const latestBlogs = blog.slice(0, 3);
   const featuredProjects = projects.slice(0, 3);
   useEffect(() => {
-    // dispatch(getBlog());
-    // dispatch(getProjects());
+    dispatch(getBlog());
+    dispatch(getProjects());
   });
 
   return (
