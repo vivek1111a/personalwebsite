@@ -18,8 +18,8 @@ export function IndividualProject({ carddata }: { carddata: ProjectType }) {
   };
 
   return (
-    <Link to={`/projects/${carddata._id}`}>
-      <Card className="project-card hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+    <Card className="project-card hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between">
+      <Link to={`/projects/${carddata._id}`} className="block">
         <div>
           <CardHeader className="p-0">
             {carddata.image && (
@@ -45,13 +45,13 @@ export function IndividualProject({ carddata }: { carddata: ProjectType }) {
             />
           </CardContent>
         </div>
-        <CardFooter className="flex justify-between p-4">
-          <Button onClick={handleViewLive}>View Live</Button>
-          <Link to={`/projects/${carddata._id}?comment=true`}>
-            <Button variant="secondary">Comment</Button>
-          </Link>
-        </CardFooter>
-      </Card>
-    </Link>
+      </Link>
+      <CardFooter className="flex justify-between p-4">
+        <Button onClick={handleViewLive}>View Live</Button>
+        <Link to={`/projects/${carddata._id}?comment=true`}>
+          <Button variant="secondary">Comment</Button>
+        </Link>
+      </CardFooter>
+    </Card>
   );
 }

@@ -14,12 +14,29 @@ const MarkdownRenderer = ({ markdown }: { markdown: string }) => {
         ];
       },
     ],
+    tables: true,
+    tasklists: true,
+    strikethrough: true,
+    emoji: true,
+    underline: true,
+    ghCodeBlocks: true,
+    ghMentions: true,
+    simpleLineBreaks: true,
+    openLinksInNewWindow: true,
   });
   //   console.log(markdown);
   const rawHtml = converter.makeHtml(markdown);
-  const sanitizedHtml = DOMPurify.sanitize(rawHtml); // Prevents XSS
+  const sanitizedHtml = DOMPurify.sanitize(rawHtml, {
+    ADD_ATTR: ["target"], // Allow target attribute for links
+    ADD_TAGS: ["iframe"], // Allow iframes if needed
+  });
 
-  return <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />;
+  return (
+    <div
+      className="prose prose-lg max-w-none"
+      dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+    />
+  );
 };
 
 export default MarkdownRenderer;

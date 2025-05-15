@@ -35,7 +35,12 @@ const LinesMarkdownRenderer = ({
   const rawHtml = converter.makeHtml(filteredMarkdown);
   const sanitizedHtml = DOMPurify.sanitize(rawHtml); // Prevents XSS
 
-  return <div dangerouslySetInnerHTML={{ __html: sanitizedHtml }} />;
+  return (
+    <div
+      className="prose prose-lg max-w-none"
+      dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+    />
+  );
 };
 
 export default LinesMarkdownRenderer;

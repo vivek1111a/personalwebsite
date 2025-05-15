@@ -41,9 +41,9 @@ export default function Contact() {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen py-10 px-6">
-      <div className="max-w-xl mx-auto mt-10">
-        <Card className="bg-white shadow-lg rounded-lg p-6">
+    <div className="bg-gray-100 min-h-screen py-5 px-6">
+      <div className="max-w-xl mx-auto mt-5">
+        <Card className="bg-white shadow-lg rounded-lg py-3 px-6">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">Contact Me</CardTitle>
           </CardHeader>
@@ -97,6 +97,18 @@ export default function Contact() {
             </form>
           </CardContent>
         </Card>
+        <div className="mt-10">
+          <p className="text-gray-700">
+            If you have any questions or feedback, please feel free to contact
+            me.
+          </p>
+          <p className="text-gray-700">
+            Email:{" "}
+            <a href="mailto:admin@vivekwadate.com" className="text-blue-500">
+              admin@vivekwadate.com
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -16,22 +16,22 @@ export default function Blogfullinfo() {
   //get id from url
   const { id } = useParams<{ id: string }>();
 
-  const currentblog = blogs.find((blog: BlogType) => blog._id === id);
+  const currentblog: BlogType | undefined = blogs.find(
+    (blog: BlogType) => blog._id === id
+  );
 
   if (!currentblog) {
     return <div>Blog not found</div>;
   }
   const date = new Date(currentblog.date);
-  const displaydate = date.toDateString();
-  const displayconent = currentblog.content;
   return (
     <div className="blogfullinfo">
       <header className="text-center py-10">
         <h1 className="blogtitle">{currentblog.title}</h1>
-        <p className="blogdate">{displaydate}</p>
+        <p className="blogdate">{date.toDateString()}</p>
       </header>
       <div className="blogmaincontent">
-        <MarkdownRenderer markdown={displayconent} />
+        <MarkdownRenderer markdown={currentblog.content} />
       </div>
     </div>
   );

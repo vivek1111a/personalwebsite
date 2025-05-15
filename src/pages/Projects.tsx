@@ -7,7 +7,9 @@ import { getProjects } from "@/redux/project";
 import { AppDispatch } from "@/redux/store";
 
 export default function Projects() {
-  const projects = useSelector((state: any) => state.project.value);
+  const projects: ProjectType[] = useSelector(
+    (state: any) => state.project.value
+  );
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getProjects());
