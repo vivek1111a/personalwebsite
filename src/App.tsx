@@ -15,18 +15,25 @@ import ProjectFullInfo from "./components/project/ProjectFullInfo";
 import Subscribe from "./pages/subscribe";
 import ReactGA from "react-ga4";
 
-function App() {
-  const google_analytics = import.meta.env.VITE_TEST_GOOGLE;
-  ReactGA.initialize(google_analytics);
+// Google Analytics Tracker Component
+const GoogleAnalyticsTracker = () => {
   const location = useLocation();
   ReactGA.send({
     hitType: "pageview",
     page: location.pathname,
   });
+  return null;
+};
+
+function App() {
+  const google_analytics = import.meta.env.VITE_TEST_GOOGLE;
+  ReactGA.initialize(google_analytics);
+
   return (
     <>
       <BrowserRouter>
         <Provider store={store}>
+          <GoogleAnalyticsTracker />
           <Navbar />
           <div className="content">
             <Routes>
