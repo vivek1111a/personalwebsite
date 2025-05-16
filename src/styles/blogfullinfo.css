@@ -29,6 +29,9 @@
   margin-top: 2em;
   margin-bottom: 2em;
 }
+.comment-container {
+  padding-bottom: 2rem;
+}
 
 /* Add styles for markdown content */
 .prose {

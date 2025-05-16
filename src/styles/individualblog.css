@@ -2,3 +2,9 @@
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
+.blog-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

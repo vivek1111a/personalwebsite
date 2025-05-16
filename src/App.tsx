@@ -13,11 +13,13 @@ import { Provider } from "react-redux";
 import Blogfullinfo from "./components/blog/blogfullinfo";
 import ProjectFullInfo from "./components/project/ProjectFullInfo";
 import Subscribe from "./pages/subscribe";
+import Unsubscribe from "./pages/unsubscribe";
 import ReactGA from "react-ga4";
 
 // Google Analytics Tracker Component
 const GoogleAnalyticsTracker = () => {
   const location = useLocation();
+  // console.log(location.pathname);
   ReactGA.send({
     hitType: "pageview",
     page: location.pathname,
@@ -27,7 +29,9 @@ const GoogleAnalyticsTracker = () => {
 
 function App() {
   const google_analytics = import.meta.env.VITE_TEST_GOOGLE;
-  ReactGA.initialize(google_analytics);
+  if (google_analytics) {
+    ReactGA.initialize(google_analytics);
+  }
 
   return (
     <>
@@ -46,6 +50,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<Blogfullinfo />} />
               <Route path="/subscribe" element={<Subscribe />} />
+              <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route path="*" element={<Pagenotfound />} />
             </Routes>
           </div>

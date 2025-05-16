@@ -3,15 +3,18 @@ import { useParams } from "react-router-dom";
 import { BlogType } from "@/types";
 import { getBlog } from "@/redux/blog";
 import { AppDispatch } from "@/redux/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "@/styles/blogfullinfo.css";
 import MarkdownRenderer from "../../boilerplate/markdownrenderer";
-
+import BlogComments from "./BlogComments";
+import { Button } from "@/components/ui/button";
 export default function Blogfullinfo() {
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getBlog());
   }, [dispatch]);
+  const urlParams = new URLSearchParams(window.location.search);
+  const comment = urlParams.get("comment");
   const blogs = useSelector((state: any) => state.blog.value);
   //get id from url
   const { id } = useParams<{ id: string }>();
@@ -24,6 +27,7 @@ export default function Blogfullinfo() {
     return <div>Blog not found</div>;
   }
   const date = new Date(currentblog.date);
+  const [isComment, setIsComment] = useState(comment ? true : false);
   return (
     <div className="blogfullinfo">
       <header className="text-center py-10">
@@ -32,6 +36,18 @@ export default function Blogfullinfo() {
       </header>
       <div className="blogmaincontent">
         <MarkdownRenderer markdown={currentblog.content} />
+      </div>
+      <div className="comment-container">
+        <div className="blog-comments-container">
+          <Button onClick={() => setIsComment(!isComment)}>
+            {isComment ? "Remove Comment" : "Add Comment"}
+          </Button>
+        </div>
+        {isComment && (
+          <div className="blog-comments">
+            <BlogComments blogId={currentblog._id} />
+          </div>
+        )}
       </div>
     </div>
   );

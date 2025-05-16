@@ -8,7 +8,7 @@ type FormValues = {
   message: string;
 };
 
-export default function ProjectComments({ projectId }: { projectId: string }) {
+export default function BlogComments({ blogId }: { blogId: string }) {
   const [formData, setFormData] = useState<FormValues>({
     name: "",
     email: "",
@@ -25,12 +25,12 @@ export default function ProjectComments({ projectId }: { projectId: string }) {
     e.preventDefault();
     // Handle form submission (e.g., API call)
     const backendurl = import.meta.env.VITE_TEST_BACKEND;
-    const response = await fetch(backendurl + "/resend/projectcomment", {
+    const response = await fetch(backendurl + "/resend/blogcomment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...formData, projectId: projectId }),
+      body: JSON.stringify({ ...formData, blogId: blogId }),
     });
     if (response.ok) {
       alert("Thank you for your comment!");

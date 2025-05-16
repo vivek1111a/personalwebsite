@@ -1,48 +1,38 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ReactGA from "react-ga4";
+export default function Unsubscribe() {
+  // get email from url will be like this: /unsubscribe/?email=example@example.com
+  const [unsubscribed, setUnsubscribed] = useState(false);
+  const location = useLocation();
 
-type FormValues = {
-  email: string;
-};
-
-export default function Subscribe() {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState<FormValues>({
-    email: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // Parse query parameters from the URL
+  const queryParams = new URLSearchParams(location.search);
+  const email = queryParams.get("email");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission (e.g., API call)
     const backendurl = import.meta.env.VITE_TEST_BACKEND;
-    const response = await fetch(backendurl + "/resend/subscribe", {
+    const response = await fetch(backendurl + "/resend/unsubscribe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ email: email }),
     });
     if (response.ok) {
       ReactGA.event({
         category: "User",
-        action: "Signed up for newsletter",
+        action: "Unsubscribed from newsletter",
         label: "newsletter_form",
       });
-      //redirect to /blog
-      navigate("/blog");
+      setUnsubscribed(true);
     } else {
       alert("Failed to send message!");
     }
-    setFormData({ email: "" });
   };
 
   return (
@@ -56,25 +46,13 @@ export default function Subscribe() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="email" className="block text-gray-700">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-200"
-                  required
-                />
-              </div>
-
               <Button type="submit" className="w-full">
-                Submit
+                Unsubscribe
               </Button>
             </form>
+            {unsubscribed && (
+              <p className="text-green-500 pt-4">Unsubscribed successfully!</p>
+            )}
           </CardContent>
         </Card>
       </div>

@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProjects } from "@/redux/project";
 import { AppDispatch } from "@/redux/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "@/styles/ProjectFullInfo.css";
 import MarkdownRenderer from "@/boilerplate/markdownrenderer";
 import ProjectComments from "./ProjectComments";
-
+import { Button } from "@/components/ui/button";
 export default function ProjectFullInfo() {
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
@@ -15,6 +15,7 @@ export default function ProjectFullInfo() {
   }, [dispatch]);
   const urlParams = new URLSearchParams(window.location.search);
   const comment = urlParams.get("comment");
+  const [isComment, setIsComment] = useState(comment ? true : false);
   const projects = useSelector(
     (state: any) => state.project.value
   ) as ProjectType[];
@@ -42,11 +43,18 @@ export default function ProjectFullInfo() {
       <div className="project-content">
         <MarkdownRenderer markdown={currentProject.description} />
       </div>
-      {comment && (
-        <div className="project-comments">
-          <ProjectComments projectId={currentProject._id} />
+      <div className="comment-container">
+        <div className="project-comments-container">
+          <Button onClick={() => setIsComment(!isComment)}>
+            {isComment ? "Remove Comment" : "Add Comment"}
+          </Button>
         </div>
-      )}
+        {isComment && (
+          <div className="project-comments">
+            <ProjectComments projectId={currentProject._id} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

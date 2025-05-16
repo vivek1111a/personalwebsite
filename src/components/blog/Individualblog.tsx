@@ -17,9 +17,16 @@ export function Individualblog({ blog }: { blog: BlogType }) {
       </CardHeader>
       <CardContent>
         <LinesMarkdownRenderer markdown={blog.content} lineRange={[1, 5]} />
-        <Link to={"/blog/" + blog._id}>
-          <Button className="mt-4">Read More</Button>
-        </Link>
+        <div className="blog-button-container">
+          <Link to={"/blog/" + blog._id}>
+            <Button className="mt-4">Read More</Button>
+          </Link>
+          <Link to={"/blog/" + blog._id + "?comment=true"}>
+            <Button className="mt-4" variant="outline">
+              Add Comment
+            </Button>
+          </Link>
+        </div>
       </CardContent>
     </Card>
   );
