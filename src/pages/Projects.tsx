@@ -14,6 +14,9 @@ export default function Projects() {
   useEffect(() => {
     dispatch(getProjects());
   }, [dispatch]);
+  useEffect(() => {
+    document.title = "Projects by Vivek Wadate";
+  }, []);
   return (
     <div className="projects-page px-4 py-8">
       <header className="text-center py-16 bg-white">

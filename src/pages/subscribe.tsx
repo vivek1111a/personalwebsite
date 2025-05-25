@@ -38,9 +38,14 @@ export default function Subscribe() {
         label: "newsletter_form",
       });
       //redirect to /blog
+      alert("Thankyou for subscribing");
       navigate("/blog");
     } else {
-      alert("Failed to send message!");
+      if (response.status == 400) {
+        alert("Email already Subscribed");
+      } else {
+        alert("Failed to send message!");
+      }
     }
     setFormData({ email: "" });
   };

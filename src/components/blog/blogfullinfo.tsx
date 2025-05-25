@@ -23,10 +23,17 @@ export default function Blogfullinfo() {
   const currentblog: BlogType | undefined = blogs.find(
     (blog: BlogType) => blog._id === id
   );
+  useEffect(() => {
+    if (!currentblog) {
+    } else {
+      document.title = currentblog.title;
+    }
+  }, []);
 
   if (!currentblog) {
     return <div>Blog not found</div>;
   }
+
   const date = new Date(currentblog.date);
   return (
     <div className="blogfullinfo">

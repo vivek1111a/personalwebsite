@@ -9,6 +9,7 @@ import LinesMarkdownRenderer from "../../boilerplate/linesmarkdown";
 export function Individualblog({ blog }: { blog: BlogType }) {
   const date = new Date(blog.date);
   const displaydate = date.toDateString();
+
   return (
     <Card key={blog._id} className="bg-white shadow-lg rounded-lg">
       <CardHeader>

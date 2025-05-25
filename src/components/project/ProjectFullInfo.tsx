@@ -23,6 +23,12 @@ export default function ProjectFullInfo() {
   const currentProject = projects.find(
     (project: ProjectType) => project._id === id
   );
+  useEffect(() => {
+    if (!currentProject) {
+    } else {
+      document.title = currentProject.title;
+    }
+  }, []);
   if (!currentProject) {
     return <div>Project not found</div>;
   }

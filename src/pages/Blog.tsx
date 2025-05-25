@@ -13,6 +13,7 @@ export default function Blog() {
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getBlog());
+    document.title = "Blog by Vivek Wadate";
   }, []);
   return (
     <div className="blog">
