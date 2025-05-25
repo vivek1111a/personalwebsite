@@ -10,6 +10,7 @@ export default function Projects() {
   const projects: ProjectType[] = useSelector(
     (state: any) => state.project.value
   );
+  const status = useSelector((state: any) => state.project.status);
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getProjects());
@@ -17,6 +18,13 @@ export default function Projects() {
   useEffect(() => {
     document.title = "Projects by Vivek Wadate";
   }, []);
+  if (status === "loading") {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
   return (
     <div className="projects-page px-4 py-8">
       <header className="text-center py-16 bg-white">

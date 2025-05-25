@@ -19,6 +19,7 @@ export default function ProjectFullInfo() {
   const projects = useSelector(
     (state: any) => state.project.value
   ) as ProjectType[];
+  const status = useSelector((state: any) => state.project.status);
   const { id } = useParams<{ id: string }>();
   const currentProject = projects.find(
     (project: ProjectType) => project._id === id
@@ -29,12 +30,26 @@ export default function ProjectFullInfo() {
       document.title = currentProject.title;
     }
   }, []);
-  if (!currentProject) {
-    return <div>Project not found</div>;
-  }
+
   const handleViewLive = () => {
-    window.open(currentProject.link, "_blank");
+    if (currentProject) {
+      window.open(currentProject.link, "_blank");
+    }
   };
+  if (status === "loading") {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+  if (!currentProject) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Project not found
+      </div>
+    );
+  }
   return (
     <div className="project-full-info">
       <div className="project-image-container">

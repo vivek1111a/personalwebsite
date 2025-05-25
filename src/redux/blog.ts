@@ -17,11 +17,19 @@ export const blogSlice = createSlice({
   name: "blog",
   initialState: {
     value: [] as BlogType[],
+    status: "idle",
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getBlog.fulfilled, (state, action) => {
       state.value = action.payload;
+      state.status = "succeeded";
+    });
+    builder.addCase(getBlog.pending, (state) => {
+      state.status = "loading";
+    });
+    builder.addCase(getBlog.rejected, (state) => {
+      state.status = "failed";
     });
   },
 });

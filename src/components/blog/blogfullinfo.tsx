@@ -16,6 +16,7 @@ export default function Blogfullinfo() {
   const urlParams = new URLSearchParams(window.location.search);
   const comment = urlParams.get("comment");
   const blogs = useSelector((state: any) => state.blog.value);
+  const status = useSelector((state: any) => state.blog.status);
   //get id from url
   const { id } = useParams<{ id: string }>();
   const [isComment, setIsComment] = useState(comment ? true : false);
@@ -30,10 +31,20 @@ export default function Blogfullinfo() {
     }
   }, []);
 
-  if (!currentblog) {
-    return <div>Blog not found</div>;
+  if (status === "loading") {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
   }
-
+  if (!currentblog) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Blog not found
+      </div>
+    );
+  }
   const date = new Date(currentblog.date);
   return (
     <div className="blogfullinfo">

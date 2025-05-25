@@ -41,7 +41,7 @@ export default function Unsubscribe() {
         <Card className="bg-white shadow-lg rounded-lg p-6">
           <CardHeader>
             <CardTitle className="text-2xl font-bold">
-              Subscribe to my blog
+              Unsubscribe from my blog
             </CardTitle>
           </CardHeader>
           <CardContent>

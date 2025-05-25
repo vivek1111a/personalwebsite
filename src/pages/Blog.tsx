@@ -10,11 +10,19 @@ import { Button } from "@/components/ui/button";
 
 export default function Blog() {
   const blogs = useSelector((state: any) => state.blog.value);
+  const status = useSelector((state: any) => state.blog.status);
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
     dispatch(getBlog());
     document.title = "Blog by Vivek Wadate";
   }, []);
+  if (status === "loading") {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
   return (
     <div className="blog">
       <header className="text-center py-16 bg-white">
