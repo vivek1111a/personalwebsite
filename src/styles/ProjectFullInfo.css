@@ -1,7 +1,8 @@
 .project-full-info {
   display: flex;
   flex-direction: column;
-  margin: 0 10rem;
+  max-width: 60rem;
+  margin: 0 auto;
 }
 
 .project-title {
@@ -44,4 +45,17 @@
 
 .comment-container {
   padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.blog-comments-button {
+  margin-left: auto;
 }

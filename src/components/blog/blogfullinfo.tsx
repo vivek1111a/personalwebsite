@@ -18,6 +18,7 @@ export default function Blogfullinfo() {
   const blogs = useSelector((state: any) => state.blog.value);
   //get id from url
   const { id } = useParams<{ id: string }>();
+  const [isComment, setIsComment] = useState(comment ? true : false);
 
   const currentblog: BlogType | undefined = blogs.find(
     (blog: BlogType) => blog._id === id
@@ -27,7 +28,6 @@ export default function Blogfullinfo() {
     return <div>Blog not found</div>;
   }
   const date = new Date(currentblog.date);
-  const [isComment, setIsComment] = useState(comment ? true : false);
   return (
     <div className="blogfullinfo">
       <header className="text-center py-10">
@@ -38,7 +38,7 @@ export default function Blogfullinfo() {
         <MarkdownRenderer markdown={currentblog.content} />
       </div>
       <div className="comment-container">
-        <div className="blog-comments-container">
+        <div className="blog-comments-button">
           <Button onClick={() => setIsComment(!isComment)}>
             {isComment ? "Remove Comment" : "Add Comment"}
           </Button>

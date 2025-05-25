@@ -26,6 +26,9 @@ export default function ProjectFullInfo() {
   if (!currentProject) {
     return <div>Project not found</div>;
   }
+  const handleViewLive = () => {
+    window.open(currentProject.link, "_blank");
+  };
   return (
     <div className="project-full-info">
       <div className="project-image-container">
@@ -43,12 +46,17 @@ export default function ProjectFullInfo() {
       <div className="project-content">
         <MarkdownRenderer markdown={currentProject.description} />
       </div>
-      <div className="comment-container">
+      <div className="project-button-container">
+        <div className="project-button-live">
+          <Button onClick={handleViewLive}>View Live</Button>
+        </div>
         <div className="project-comments-container">
           <Button onClick={() => setIsComment(!isComment)}>
             {isComment ? "Remove Comment" : "Add Comment"}
           </Button>
         </div>
+      </div>
+      <div className="comment-container">
         {isComment && (
           <div className="project-comments">
             <ProjectComments projectId={currentProject._id} />
