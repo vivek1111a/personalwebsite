@@ -5,6 +5,7 @@ type ProjectType = {
   description: string;
   image: string;
   link: string;
+  slug: string;
 };
 
 export default ProjectType;

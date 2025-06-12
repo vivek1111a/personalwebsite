@@ -44,11 +44,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/:id" element={<ProjectFullInfo />} />
+              <Route path="/projects/:slug" element={<ProjectFullInfo />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<Blogfullinfo />} />
+              <Route path="/blog/:slug" element={<Blogfullinfo />} />
               <Route path="/subscribe" element={<Subscribe />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route path="*" element={<Pagenotfound />} />

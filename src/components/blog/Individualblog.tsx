@@ -19,10 +19,10 @@ export function Individualblog({ blog }: { blog: BlogType }) {
       <CardContent>
         <LinesMarkdownRenderer markdown={blog.content} lineRange={[1, 5]} />
         <div className="blog-button-container">
-          <Link to={"/blog/" + blog._id}>
+          <Link to={"/blog/" + blog.slug}>
             <Button className="mt-4">Read More</Button>
           </Link>
-          <Link to={"/blog/" + blog._id + "?comment=true"}>
+          <Link to={"/blog/" + blog.slug + "?comment=true"}>
             <Button className="mt-4" variant="outline">
               Add Comment
             </Button>

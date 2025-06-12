@@ -18,11 +18,11 @@ export default function Blogfullinfo() {
   const blogs = useSelector((state: any) => state.blog.value);
   const status = useSelector((state: any) => state.blog.status);
   //get id from url
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [isComment, setIsComment] = useState(comment ? true : false);
 
   const currentblog: BlogType | undefined = blogs.find(
-    (blog: BlogType) => blog._id === id
+    (blog: BlogType) => blog.slug === slug
   );
   useEffect(() => {
     if (!currentblog) {

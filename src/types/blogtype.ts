@@ -3,6 +3,7 @@ type BlogType = {
   title: string;
   content: string;
   date: string;
+  slug: string;
 };
 
 export default BlogType;

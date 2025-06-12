@@ -20,9 +20,9 @@ export default function ProjectFullInfo() {
     (state: any) => state.project.value
   ) as ProjectType[];
   const status = useSelector((state: any) => state.project.status);
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const currentProject = projects.find(
-    (project: ProjectType) => project._id === id
+    (project: ProjectType) => project.slug === slug
   );
   useEffect(() => {
     if (!currentProject) {
