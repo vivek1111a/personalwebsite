@@ -23,6 +23,17 @@ const MarkdownRenderer = ({ markdown }: { markdown: string }) => {
     ghMentions: true,
     simpleLineBreaks: true,
     openLinksInNewWindow: true,
+    // ✅ Handles underscores in variables (e.g., this_is_var won't italicize)
+    literalMidWordUnderscores: true,
+
+    // ✅ Allows nested lists without strict 4-space indentation (Notion fix)
+    disableForced4SpacesIndentedSublists: true,
+
+    // ✅ GitHub-style header IDs (useful if you're linking to headings)
+    ghCompatibleHeaderId: true,
+
+    // ✅ Automatically links URLs (https://example.com)
+    simplifiedAutoLink: true,
   });
   //   console.log(markdown);
   const rawHtml = converter.makeHtml(markdown);
