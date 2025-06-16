@@ -22,6 +22,10 @@ export const blogSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getBlog.fulfilled, (state, action) => {
+      //sort the blogs by date in descending order
+      action.payload.sort((a: BlogType, b: BlogType) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
       state.value = action.payload;
       state.status = "succeeded";
     });
