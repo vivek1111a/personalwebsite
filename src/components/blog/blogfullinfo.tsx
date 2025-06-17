@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { BlogType } from "@/types";
 import { getBlog } from "@/redux/blog";
 import { AppDispatch } from "@/redux/store";
@@ -45,9 +45,18 @@ export default function Blogfullinfo() {
       </div>
     );
   }
+  const handleShare = () => {
+    navigator.clipboard.writeText(window.location.href);
+    alert("Link copied to clipboard");
+  };
   const date = new Date(currentblog.date);
   return (
     <div className="blogfullinfo">
+      <div className="share-container">
+        <div className="share-button">
+          <Button onClick={handleShare}>Share</Button>
+        </div>
+      </div>
       <header className="text-center py-10">
         <h1 className="blogtitle">{currentblog.title}</h1>
         <p className="blogdate">{date.toDateString()}</p>
@@ -56,17 +65,24 @@ export default function Blogfullinfo() {
         <MarkdownRenderer markdown={currentblog.content} />
       </div>
       <div className="comment-container">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <Link to="/subscribe">
+            <Button className="px-6 py-3 rounded-lg shadow-md text-white bg-black hover:bg-gray-800 transition">
+              Subscribe to my blog
+            </Button>
+          </Link>
+        </div>
         <div className="blog-comments-button">
           <Button onClick={() => setIsComment(!isComment)}>
             {isComment ? "Remove Comment" : "Add Comment"}
           </Button>
         </div>
-        {isComment && (
-          <div className="blog-comments">
-            <BlogComments blogId={currentblog._id} />
-          </div>
-        )}
       </div>
+      {isComment && (
+        <div className="blog-comments">
+          <BlogComments blogId={currentblog._id} />
+        </div>
+      )}
     </div>
   );
 }

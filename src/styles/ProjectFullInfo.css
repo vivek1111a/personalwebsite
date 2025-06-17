@@ -46,7 +46,7 @@
 .comment-container {
   padding-bottom: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
 }
 
@@ -58,4 +58,9 @@
 
 .blog-comments-button {
   margin-left: auto;
+}
+.share-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
 }
